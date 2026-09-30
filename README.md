@@ -17,6 +17,9 @@
   - [Resources](#resources)
   - [Blacklist](#blacklist)
   - [Rules engine](#rules-engine)
+    - [Rule weights](#rule-weights)
+    - [Thresholds settings](#thresholds-settings)
+    - [Rules settings reset](#rules-settings-reset)
   - [Logbook](#logbook)
   - [API](#api)
   - [Settings](#settings)
@@ -133,7 +136,7 @@ The last row is akin to light defence weaponry. It serves well for the primary d
 
 ### Review queue
 
-The *Review queue* page enables the assessment of [entities](#term-Entity) with low [trust scores](#term-Trust-score).
+The *Review queue* page enables the assessment of [entities](#term-Entity) with low [trust scores](#term-Trust-score): those below the *Manual review* threshold set on the [Rules engine](#thresholds-settings) page.
 
 The chart on this page shows the daily count of such [entities](#term-Entity) identified within a chosen time frame, categorized by review status: `Whitelisted`, `In review`, `Blacklisted`.
 
@@ -222,6 +225,51 @@ To manually trigger a [rule](#term-Rule)’s processing (e.g., for testing it), 
 
 The [rules engine](#term-Rules-engine)’s configuration and analysis of the outcomes of its work are vital parts of an [operator](#term-Operator)’s daily routine. Notably, see the [Supplemental investigation](#supplemental-investigation) section for several exemplary cases.
 
+#### Rule weights
+
+Each weight corresponds to a value that the [rules engine](#term-Rules-engine) applies when a [rule](#term-Rule) matches:
+
+| Weight | Value | Effect on the trust score |
+|--------|-------|---------------------------|
+| `Positive` | -20 | Increases it (trusted behaviour) |
+| `None` | 0 | None: the rule is disabled |
+| `Medium` | 10 | Moderate decrease |
+| `High` | 20 | Significant decrease |
+| `Extreme` | 70 | Major decrease |
+
+#### Thresholds settings
+
+The *Thresholds settings* form sets two [trust score](#term-Trust-score) thresholds:
+
+- **Manual review (below this score)** — [Entities](#term-Entity) with a trust score below this value appear in the [Review queue](#review-queue) (for example, 33).
+- **Auto-blacklisting (below this score)** — [Entities](#term-Entity) with a trust score below this value are added to the [Blacklist](#blacklist) automatically (for example, 20). This threshold is `Off` unless set. Use it only after prior testing, and only where truly necessary.
+
+Click `Update` to save the thresholds.
+
+#### Rules settings reset
+
+The *Rules settings reset* form applies a preset: a ready-made set of [rule](#term-Rule) weights for a common scenario. Select a preset, click `Reset`, and confirm with `Reset rules`.
+
+> **Caution**
+>
+> Applying a preset is irreversible: it replaces all current rule weights. Individual weights can be adjusted again afterwards.
+
+| Preset | Use case |
+|--------|----------|
+| Empty rules settings | Start from scratch: no rule weights set |
+| Account takeover | Detect compromised accounts via new devices, locations, password changes |
+| Credential stuffing | Detect automated login attempts and brute force attacks |
+| Content spam | Detect spam content and suspicious posting patterns |
+| Account registration | Protect registration from fake accounts and bots |
+| Fraud prevention | General fraud detection across multiple vectors |
+| Insider threat | Detect unusual employee behavior and data exfiltration |
+| Bot detection | Identify automated traffic and crawlers |
+| Dormant account | Monitor reactivation of long-inactive accounts |
+| Multi-accounting | Detect entities with multiple accounts |
+| Promo abuse | Detect promotional code and offer abuse |
+| API protection | Protect APIs from abuse and scanning |
+| High-risk regions | Flag traffic from high-fraud geographic regions |
+
 ### Logbook
 
 Visit this page to verify the statuses of the recent requests to the [tirreno’s API](https://github.com/tirrenotechnologies/DEVELOPMENT.md#api-integration).
@@ -229,6 +277,25 @@ Visit this page to verify the statuses of the recent requests to the [tirreno’
 The provided data is meant to help identify failing requests (including by sent IP address and event timestamp) and get more information for fixing such requests.
 
 The *Logbook* may also serve as a way of confirming API communication is properly set up, making it a valuable tool at the [API integration](https://github.com/tirrenotechnologies/DEVELOPMENT.md#api-integration) stage.
+
+The table lists the latest requests (how many are kept is set by `LOGBOOK_LIMIT`, see [Environment variables](https://github.com/tirrenotechnologies/ADMIN.md#environment-variables)) with the following columns:
+
+- **Source IP** — Where the request came from.
+- **Local timestamp** — When the request was received, in the [operator](#term-Operator)’s time zone.
+- **Endpoint** — Which API endpoint was called.
+- **Status** — The processing result (see below).
+- **Raw POST data** — The fields that were sent.
+
+The search bar filters the table by raw POST data, endpoint, IP address, or error. Clicking a row opens a panel with the request details. The chart shows the daily number of requests, split into *Success*, *Validation issues*, and *Failed*.
+
+| Status | Meaning |
+|--------|---------|
+| `Success` | The [event](#term-Event) was recorded. |
+| `Success with warnings` | The [event](#term-Event) was recorded, but some values were corrected (for example, truncated or invalid values). |
+| `Request failed` | The [event](#term-Event) was not recorded: a required field was missing, or a server error occurred. |
+| `Rate limit exceeded` | The request was rejected by the rate limiter (see [Rate limiting](https://github.com/tirrenotechnologies/DEVELOPMENT.md#rate-limiting)). |
+
+Requests with a missing or unknown [Tracking ID](#term-Tracking-ID) do not appear in the *Logbook*; see [Sending data issues](https://github.com/tirrenotechnologies/ADMIN.md#sending-data-issues) for how to troubleshoot them.
 
 ### API
 
