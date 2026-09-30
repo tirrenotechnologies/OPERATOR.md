@@ -27,7 +27,7 @@
     - [IP address signals](#ip-address-signals)
   - [Procedures outline](#procedures-outline)
 - [Glossary](#glossary)
-- [Resources](#resources)
+- [Resources](#links-and-resources)
 - [Found a mistake?](#found-a-mistake)
 
 ## Overview
@@ -238,7 +238,7 @@ At the top of the page, you will see a [Tracking ID](#term-Tracking-ID). It auth
 
 The code examples on the *API* page demonstrate the format in which tirreno expects [event](#term-Event) data to be sent, including mandatory and optional parameters for passing [event](#term-Event) details. You can also find a similar set of examples, supported by instructions, in the [API integration](https://github.com/tirrenotechnologies/DEVELOPMENT.md#api-integration) section of the developer documentation.
 
-Use the panels below to manage [data enrichment](#term-Enrichment-API) — a feature of the [Enterprise edition](#term-Enterprise-edition) of tirreno. The panels allow the following:
+Use the panels below to manage [data enrichment](#term-Enrichment-API) — a feature of the [Enterprise Edition](#term-Enterprise-edition) of tirreno. The panels allow the following:
 
 - Add an [enrichment key](#term-Enrichment-key).
 - Choose the data types to enrich.
@@ -366,9 +366,11 @@ Even though tirreno is a system utilizing numerous sophisticated techniques insi
 
 Following is a list of terms that may come in handy when acquainting oneself with tirreno. The terms are listed in the order corresponding to the [workflow of the system](#system-workflow).
 
-- <a id="term-Community-edition"></a>**Community edition** — Open-source security platform for fraud prevention, account threats, and abuse detection. It is available for free on [GitHub](https://github.com/tirrenotechnologies/tirreno).
+- <a id="term-Community-edition"></a>**Community Edition** (open-source) — For developer teams that want to add a security layer to self-hosted applications. Get started today without getting into complex business relationships. Licensed under GNU Affero General Public License v3 (AGPL-3.0).
 
-- <a id="term-Enterprise-edition"></a>**Enterprise edition** — Proprietary license, tailored features, developer support, and multi-tenant architecture.
+- <a id="term-Enterprise-edition"></a>**Enterprise Edition** — Built for client portals, SaaS, public sector portals, and digital platforms. Fraud and abuse prevention, and dedicated assistance for your SOC, product, and risk teams.
+
+- <a id="term-White-label-edition"></a>**White-label Edition** — White-label is for companies that want to offer anti-fraud, security or risk-management products built on tirreno framework to their clients under their own brand. tirreno runs on your infrastructure, or even in your edge product. For Enterprise and White-label editions, contact team@tirreno.com.
 
 - <a id="term-Enrichment-API"></a>**Enrichment API** — The tirreno API that supplies extended information on IP addresses.
 
@@ -404,6 +406,8 @@ Following is a list of terms that may come in handy when acquainting oneself wit
 
 ---
 
+<a id="links-and-resources"></a>
+
 ## Resources
 
 | Resource | URL |
@@ -421,6 +425,7 @@ Following is a list of terms that may come in handy when acquainting oneself wit
 | PHP Tracker | [github.com/tirrenotechnologies/tirreno-php-tracker](https://github.com/tirrenotechnologies/tirreno-php-tracker) |
 | Python Tracker | [github.com/tirrenotechnologies/tirreno-python-tracker](https://github.com/tirrenotechnologies/tirreno-python-tracker) |
 | Node.js Tracker | [github.com/tirrenotechnologies/tirreno-nodejs-tracker](https://github.com/tirrenotechnologies/tirreno-nodejs-tracker) |
+| WordPress Tracker | [github.com/tirrenotechnologies/tirreno-wordpress-tracker](https://github.com/tirrenotechnologies/tirreno-wordpress-tracker) |
 | Community Chat | [chat.tirreno.com](https://chat.tirreno.com) |
 
 ---
@@ -440,5 +445,3 @@ The name "tirreno" is a registered trademark of tirreno technologies sàrl.
 ---
 
 *tirreno Copyright (C) 2026 tirreno technologies sàrl, Vaud, Switzerland.*
-
-'t'
