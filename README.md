@@ -1,6 +1,16 @@
-# tirreno user guide
+# tirreno for operators
 
-## Contents
+### About this guide
+
+Welcome to the tirreno operator guide. This document covers getting started, the console pages, rules engine configuration, and operator procedures.
+
+### Target audience
+
+This guide is for operators who use the tirreno console to review activity, configure rules, and investigate entities. For installation and server configuration, see the [administration guide](https://github.com/tirrenotechnologies/ADMIN.md). For integrating your application, see the [developer guide](https://github.com/tirrenotechnologies/DEVELOPMENT.md), for building your own pages and applications, see the [API reference](https://github.com/tirrenotechnologies/API.md).
+
+---
+
+## Table of contents
 
 - [Overview](#overview)
 - [Getting started](#getting-started)
