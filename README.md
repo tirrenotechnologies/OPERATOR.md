@@ -491,9 +491,9 @@ Following is a list of terms that may come in handy when acquainting oneself wit
 |----------|-----|
 | Live Demo | [play.tirreno.com](https://play.tirreno.com) (admin/tirreno) |
 | Resource center | [tirreno.com/bat](https://www.tirreno.com/bat/) |
-| Administration guide | [github.com/tirrenotechnologies/ADMIN.md](https://github.com/tirrenotechnologies/ADMIN.md) |
 | Developers Guide | [github.com/tirrenotechnologies/DEVELOPMENT.md](https://github.com/tirrenotechnologies/DEVELOPMENT.md) |
-| User Guide | [github.com/tirrenotechnologies/USER.md](https://github.com/tirrenotechnologies/USER.md) |
+| Administrator guide | [github.com/tirrenotechnologies/ADMIN.md](https://github.com/tirrenotechnologies/ADMIN.md) |
+| Operator guide | [github.com/tirrenotechnologies/OPERATOR.md](https://github.com/tirrenotechnologies/OPERATOR.md) |
 | API reference | [github.com/tirrenotechnologies/API.md](https://github.com/tirrenotechnologies/API.md) |
 | GitHub | [github.com/tirrenotechnologies/tirreno](https://github.com/tirrenotechnologies/tirreno) |
 | GitLab Mirror | [gitlab.com/tirreno/tirreno](https://gitlab.com/tirreno/tirreno) |
